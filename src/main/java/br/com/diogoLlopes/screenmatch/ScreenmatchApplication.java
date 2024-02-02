@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.com.diogoLlopes.screenmatch.model.DadosEpisodio;
 import br.com.diogoLlopes.screenmatch.model.DadosSerie;
 import br.com.diogoLlopes.screenmatch.service.ConsumoApi;
 import br.com.diogoLlopes.screenmatch.service.ConverteDados;
@@ -24,8 +25,12 @@ public class ScreenmatchApplication implements CommandLineRunner{
 		System.out.println(json);
 		ConverteDados conversor = new ConverteDados();
 		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
+		
 		System.out.println(dados);
+		
+		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
 
+		System.out.println(dadosEpisodio);
 	}
 
 }
